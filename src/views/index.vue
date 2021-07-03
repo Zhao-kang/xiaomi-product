@@ -1,11 +1,23 @@
 <template>
-	<div>hello world</div>
-  <div></div>
+	<router-view></router-view>
+	<tab />
 </template>
 
 <script>
-export default {}
+import tab from './tab'
+export default {
+	components: { tab }
+}
 </script>
 
 <style>
+#app {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+}
 </style>
