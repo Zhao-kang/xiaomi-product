@@ -1,23 +1,15 @@
 const path = require('path')
+function resolve (dir) {
+  //path.join(__dirname)设置绝对路径
+  return path.join(__dirname, dir)
+}
 
 module.exports = {
   chainWebpack: (config) => {
     config.resolve.alias
-      .set('vue$', 'vue/dist/vue.esm.js')
-      .set('@', path.resolve(__dirname, './src'))
+      //set第一个参数：设置的别名，第二个参数：设置的路径
+      .set('@', resolve('./src'))
   },
-  // resolve: {
-
-  //   modules: [
-  //     path.resolve('src'),
-  //     path.resolve('node_modules')
-  //   ],
-  //   alias: {
-  //     "@": path.join(__dirname, './src'),
-  //   },
-  //   // 省略后缀
-  //   extensions: ['.js', '.jsx', '.less', 'css', 'png']
-  // },
   css: {
     loaderOptions: {
       css: {},
@@ -27,12 +19,9 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: '<url>',
+        target: 'https://m.xiaomiyoupin.com',
         ws: true,
         changeOrigin: true
-      },
-      '/foo': {
-        target: '<other_url>'
       }
     }
   }

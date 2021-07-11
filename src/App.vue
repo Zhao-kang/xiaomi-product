@@ -1,7 +1,15 @@
 <template>
-	<div id="nav"></div>
 	<router-view />
+
+	<tabs />
 </template>
+
+<script>
+import tabs from '@/views/tabs'
+export default {
+	components: { tabs }
+}
+</script>
 
 <style>
 #app {
